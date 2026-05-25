@@ -50,7 +50,7 @@ const initialDb = {
     ["Benefits & Compensation Structure", "Text", "Ready", "12", "5.5 KB", "2026-05-14"],
     ["Standard Interview FAQ Matrix", "Text", "Ready", "6", "3.1 KB", "2026-05-15"],
     ["Engineering Architecture Stack", "Text", "Ready", "15", "8.9 KB", "2026-05-18"],
-    ["https://www.diploy.in/docs", "URL", "Ready", "42", "94.5 KB", "2026-05-20"],
+    ["https://www.jashom.com/docs", "URL", "Ready", "42", "94.5 KB", "2026-05-20"],
     ["Employee Handbook 2026", "PDF File", "Ready", "68", "145.2 KB", "2026-05-22"]
   ],
   uploads: [
@@ -98,9 +98,9 @@ const initialDb = {
     ["Payment Processing Hooks", "Connects Stripe, PayPal, Razorpay, and Paystack gateways.", "Installed"]
   ],
   adminUsers: [
-    ["Demo User", "demo@diploy.in", "Platform Owner", "Active"],
-    ["Lead Recruiter", "recruiter@diploy.in", "Team Member", "Active"],
-    ["Billing Specialist", "finance@diploy.in", "Billing Admin", "Active"]
+    ["Demo User", "demo@jashom.com", "Platform Owner", "Active"],
+    ["Lead Recruiter", "recruiter@jashom.com", "Team Member", "Active"],
+    ["Billing Specialist", "finance@jashom.com", "Billing Admin", "Active"]
   ],
   credits: 1488,
   theme: "dark",
@@ -206,12 +206,12 @@ function App() {
 }
 
 function Login({ onLogin }) {
-  const [email, setEmail] = useState("demo@diploy.in");
-  const [password, setPassword] = useState("Demo@123");
+  const [email, setEmail] = useState("demo@jashom.com");
+  const [password, setPassword] = useState("Jashom@123");
   const [err, setErr] = useState("");
 
   const handleSignIn = () => {
-    if (email === "demo@diploy.in" && password === "Demo@123") {
+    if (email === "demo@jashom.com" && password === "Jashom@123") {
       onLogin();
     } else {
       setErr("Invalid credentials. Try using the live demo credentials.");
@@ -239,7 +239,7 @@ function Login({ onLogin }) {
         <p className="muted">Enter proposal credentials to access the simulator</p>
         {err && <div className="badge red span2" style={{marginBottom:10}}>{err}</div>}
         <label>Email Address
-          <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="demo@diploy.in" />
+          <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="demo@jashom.com" />
         </label>
         <label>Password
           <input value={password} type="password" onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" />
@@ -306,7 +306,7 @@ function Topbar({ onLogout, setModal, theme, setTheme }) {
           <span>D</span>
           <div>
             <b>Demo Administrator</b>
-            <small>demo@diploy.in</small>
+            <small>demo@jashom.com</small>
           </div>
         </div>
         <button className="icon-button" onClick={onLogout} title="Log Out"><LogOut size={16} /></button>
@@ -1727,7 +1727,7 @@ function Widget({ data, setModal, setData, flash }) {
             </div>
           </label>
           
-          <CodeBlock title="Embed Script Integration Tag" code={`<!-- Inject widget overlay tag -->\n<div data-agenthr-careers data-brand="${data.widgetBrandName.toLowerCase()}" data-color="${data.widgetBrandColor}"></div>\n<script src="https://agenthr.diploy.in/widget/v2/embed.js" async></script>`} />
+          <CodeBlock title="Embed Script Integration Tag" code={`<!-- Inject widget overlay tag -->\n<div data-agenthr-careers data-brand="${data.widgetBrandName.toLowerCase()}" data-color="${data.widgetBrandColor}"></div>\n<script src="https://agenthr.jashom.com/widget/v2/embed.js" async></script>`} />
         </Panel>
 
         <Panel title={`Interactive Careers Widget - ${data.widgetBrandName}`} subtitle="Simulate applicant experience. Applications submitted here are parsed and populated instantly." style={{borderColor: data.widgetBrandColor}}>
@@ -1899,9 +1899,9 @@ function Api({ data, setModal, setData, flash }) {
             <button className={activeTab === "py" ? "selected" : ""} onClick={() => setActiveTab("py")}>Python</button>
           </div>
 
-          {activeTab === "curl" && <pre>{`curl -X POST "https://agenthr.diploy.in/api/v1/candidates" \\\n  -H "Authorization: Bearer ag_live_••••" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "name": "Siddharth Patel",\n    "email": "sid.patel@engineering.in",\n    "phone": "+91 94819 22019",\n    "job_id": "j4"\n  }'`}</pre>}
-          {activeTab === "js" && <pre>{`fetch("https://agenthr.diploy.in/api/v1/candidates", {\n  method: "POST",\n  headers: {\n    "Authorization": "Bearer ag_live_••••",\n    "Content-Type": "application/json"\n  },\n  body: JSON.stringify({\n    name: "Siddharth Patel",\n    email: "sid.patel@engineering.in",\n    phone: "+91 94819 22019",\n    job_id: "j4"\n  })\n}).then(res => res.json()).then(console.log);`}</pre>}
-          {activeTab === "py" && <pre>{`import requests\n\nres = requests.post(\n  "https://agenthr.diploy.in/api/v1/candidates",\n  headers={"Authorization": "Bearer ag_live_••••"},\n  json={\n    "name": "Siddharth Patel",\n    "email": "sid.patel@engineering.in",\n    "phone": "+91 94819 22019",\n    "job_id": "j4"\n  }\n)\nprint(res.json())`}</pre>}
+          {activeTab === "curl" && <pre>{`curl -X POST "https://agenthr.jashom.com/api/v1/candidates" \\\n  -H "Authorization: Bearer ag_live_••••" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "name": "Siddharth Patel",\n    "email": "sid.patel@engineering.in",\n    "phone": "+91 94819 22019",\n    "job_id": "j4"\n  }'`}</pre>}
+          {activeTab === "js" && <pre>{`fetch("https://agenthr.jashom.com/api/v1/candidates", {\n  method: "POST",\n  headers: {\n    "Authorization": "Bearer ag_live_••••",\n    "Content-Type": "application/json"\n  },\n  body: JSON.stringify({\n    name: "Siddharth Patel",\n    email: "sid.patel@engineering.in",\n    phone: "+91 94819 22019",\n    job_id: "j4"\n  })\n}).then(res => res.json()).then(console.log);`}</pre>}
+          {activeTab === "py" && <pre>{`import requests\n\nres = requests.post(\n  "https://agenthr.jashom.com/api/v1/candidates",\n  headers={"Authorization": "Bearer ag_live_••••"},\n  json={\n    "name": "Siddharth Patel",\n    "email": "sid.patel@engineering.in",\n    "phone": "+91 94819 22019",\n    "job_id": "j4"\n  }\n)\nprint(res.json())`}</pre>}
 
           <button className="primary full" style={{marginTop: 14}} onClick={handleSimulateRequest} disabled={simRunning}>
             {simRunning ? "Sending payload..." : "Send Simulated HTTP Request"}
